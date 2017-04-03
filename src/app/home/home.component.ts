@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from '../post.model';
 import { PostService } from '../post.service';
 import { Router } from '@angular/router';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
+
 
 @Component({
   selector: 'app-home',
@@ -11,7 +13,10 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  posts: FirebaseListObservable<any[]>;
+
   upVote(post) {
+
     post.vote += 1;
   }
 
@@ -27,16 +32,21 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  posts: Post[];
+  // posts: Post[];
 
-  goToPost(clickedPost: Post) {
-    this.router.navigate(['posts', clickedPost.id]);
+  goToPost(clickedPost: Post, key) {
+    console.log(clickedPost);
+    this.router.navigate(['posts', key]);
   }
 
   constructor(private router: Router, private postService: PostService) {}
 
+  postsToDisplay: Post[] = [];
   ngOnInit() {
-    this.posts = this.postService.getPosts();
+    this.postService.getPosts().subscribe(dataLastEmittedFromObserver => {
+      for(var i = 0; i < dataLastEmittedFromObserver.length ;i++) {
+        this.postsToDisplay.push(dataLastEmittedFromObserver[i]);
+      }
+    })
   }
-
 }

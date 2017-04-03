@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from '../post.model';
 import { PostService } from '../post.service';
 import { Router } from '@angular/router';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
+
 
 @Component({
   selector: 'app-food',
@@ -12,21 +14,28 @@ import { Router } from '@angular/router';
 export class FoodComponent implements OnInit {
   constructor(private router: Router, private postService: PostService) {}
 
+  postsToDisplay: Post[] = [];
   ngOnInit() {
-    this.posts = this.postService.getPosts();
+    this.postService.getPosts().subscribe(dataLastEmittedFromObserver => {
+      for(var i = 0; i < dataLastEmittedFromObserver.length; i++) {
+        this.postsToDisplay.push(dataLastEmittedFromObserver[i]);
+      }
+    })
+
     this.getFoodPosts();
   }
 
-  posts: Post[];
+  posts: FirebaseListObservable<any[]>;
   foodPosts: Post[] = [];
 
   getFoodPosts() {
-    for (var i = 0; i < this.posts.length; i++) {
-      if (this.posts[i].category === 'food') {
-        this.foodPosts.push(this.posts[i]);
+    for (var i = 0; i < this.postsToDisplay.length; i++) {
+      if (this.postsToDisplay[i].category === 'food') {
+        this.foodPosts.push(this.postsToDisplay[i]);
       }
     }
-    return this.foodPosts;
+
+    console.log(this.foodPosts);
   }
 
   goToPost(clickedPost: Post) {

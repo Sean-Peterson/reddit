@@ -1,0 +1,37 @@
+{ "posts": [{
+  "title":"Trump destroys the world!! :p",
+  "content": "Everyone knew it was coming, but you know, yolo.",
+  "date": 41516,
+  "category": "news",
+  "id": 1,
+  "vote": 0
+  }, {
+  "title": "Croissants for the average joe",
+  "content": "An easy to follow recipe that will leave you feeling that it was not easy. (SHOCKER)",
+  "date": 40416,
+  "category": "food",
+  "id": 2,
+  "vote": 0
+  }, {
+  "title":"Gonzaga makes histroy. First NCAA Title",
+  "content": "Shoulda had a perfect season, too.",
+  "date": 40316,
+  "category": "sports",
+  "id": 3,
+  "vote": 0
+  }, {
+  "title":"20 places to add to your bucket list",
+  "content": "This is not click bate. Promise!",
+  "date": 51216,
+  "category": "travel",
+  "id": 4,
+  "vote": 0
+  }, {
+  "title":"Why cooking classes aren't a scam",
+  "content": "Wait, yes they are.",
+  "date": 43016,
+  "category": "food",
+  "id": 5,
+  "vote": 0
+  }]
+}
