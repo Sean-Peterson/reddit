@@ -10,13 +10,18 @@ import { Router } from '@angular/router';
   providers: [PostService]
 })
 export class FoodComponent implements OnInit {
+  constructor(private router: Router, private postService: PostService) {}
+
+  ngOnInit() {
+    this.posts = this.postService.getPosts();
+    this.getFoodPosts();
+  }
 
   posts: Post[];
   foodPosts: Post[] = [];
 
   getFoodPosts() {
     for (var i = 0; i < this.posts.length; i++) {
-      console.log(this.posts[i]);
       if (this.posts[i].category === 'food') {
         this.foodPosts.push(this.posts[i]);
       }
@@ -24,11 +29,8 @@ export class FoodComponent implements OnInit {
     return this.foodPosts;
   }
 
-  constructor(private router: Router, private postService: PostService) {}
-
-  ngOnInit() {
-    this.posts = this.postService.getPosts();
-    this.getFoodPosts();
+  goToPost(clickedPost: Post) {
+    this.router.navigate(['posts', clickedPost.id]);
   }
 
 }

@@ -3,5 +3,7 @@
 </div>
 
 <ul *ngFor="let post of posts">
-  <li>{{post.title}}</li>
+  <li (click)="goToPost(post)">{{post.title}} <span [class]="voteColor(post)">{{post.vote}}</span></li>
+  <button (click)="upVote(post)">&uarr;</button>
+  <button (click)="downVote(post)">&darr;</button>
 </ul>

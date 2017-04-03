@@ -3,5 +3,6 @@
 </div>
 
 <ul *ngFor="let post of foodPosts">
-  <li>{{post.title}}</li>
+  <li (click)="goToPost(post)"><strong>{{post.title}}</strong></li>
+  <li>{{post.content}}</li>
 </ul>

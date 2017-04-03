@@ -10,6 +10,7 @@ import { SportsComponent } from './sports/sports.component';
 import { FoodComponent } from './food/food.component';
 import { TravelComponent } from './travel/travel.component';
 import { HomeComponent } from './home/home.component';
+import { PostDetailComponent } from './post-detail/post-detail.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { HomeComponent } from './home/home.component';
     SportsComponent,
     FoodComponent,
     TravelComponent,
-    HomeComponent
+    HomeComponent,
+    PostDetailComponent
   ],
   imports: [
     BrowserModule,

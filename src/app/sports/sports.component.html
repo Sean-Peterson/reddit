@@ -1,3 +1,8 @@
 <div class="jumbotron">
   <h1>Sports</h1>
 </div>
+
+<ul *ngFor="let post of sportsPosts">
+  <li (click)="goToPost(post)"><strong>{{post.title}}</strong></li>
+  <li>{{post.content}}</li>
+</ul>

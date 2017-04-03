@@ -7,6 +7,7 @@ import { SportsComponent } from './sports/sports.component';
 import { FoodComponent } from './food/food.component';
 import { TravelComponent } from './travel/travel.component';
 import { HomeComponent } from './home/home.component';
+import { PostDetailComponent } from './post-detail/post-detail.component';
 
 const appRoutes: Routes = [
   {
@@ -25,6 +26,9 @@ const appRoutes: Routes = [
   }, {
     path: 'travel',
     component: TravelComponent
+  }, {
+    path: 'posts/:id',
+    component: PostDetailComponent
   }
 ];
 
