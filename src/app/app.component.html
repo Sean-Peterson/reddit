@@ -1,17 +1,15 @@
-<div class="jumbotron">
-  <h1>Reddit</h1>
-</div>
-
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
-      <li><a href="/">Home</a></li>
-      <li><a href="/news">News</a></li>
-      <li><a href="/sports">Sports</a></li>
-      <li><a href="/food">Food</a></li>
-      <li><a href="/travel">Travel</a></li>
+      <li><a routerLink="">All</a></li>
+      <li><a routerLink="news">News</a></li>
+      <li><a routerLink="sports">Sports</a></li>
+      <li><a routerLink="food">Food</a></li>
+      <li><a routerLink="travel">Travel</a></li>
     </ul>
   </div>
 </nav>
 
-<router-outlet></router-outlet>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
